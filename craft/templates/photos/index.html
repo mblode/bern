@@ -1,0 +1,9 @@
+{% extends "_layouts/site" %}
+
+{% block main %}
+
+  {% for entry in craft.entries.section('photos').limit(10) %}
+
+  {% endfor %}
+
+{% endblock %}

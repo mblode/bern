@@ -1,0 +1,20 @@
+{% extends "_layouts/base" %}
+
+{% block body %}
+
+  <div class="fauxcolumn"></div>
+    <div class="container group">
+      {% include "_includes/nav" %}
+
+      <div class="content">
+        <article>
+          {% block main %}{% endblock %}
+        </article>
+        
+        {% include "_includes/footer" %}
+      </div>
+
+    </div>
+  </div>  
+
+{% endblock %}

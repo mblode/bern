@@ -1,0 +1,49 @@
+<!--<div class="primary">
+  <header>
+    <h1><a href="{{siteUrl}}">Bernardino Alvarez</a> is likely to be reading, writing, thinking, or building things.</h1>
+      <nav>
+        <ul>
+          <li><a class="home" href="{{siteUrl}}">Do</a></li>
+          <li><a class="blog" href="{{siteUrl}}log">Log</a></li>
+          <li><a class="about" href="{{siteUrl}}info">Info</a></li>
+          <li><a class="notes" href="{{siteUrl}}notes">Notes</a></li>
+          <li><a class="notes" href="{{siteUrl}}favs/books">Favourites</a></li>
+        </ul>
+      </nav>
+  </header>
+</div>-->
+
+{% set nav = craft.amNav.getNavRaw("navigation") %}
+
+{% macro addNodeToNavigation(node, index) %}
+    {%- set nodeClasses = [] -%}
+    {%- if node.hasChildren -%}
+        {%- set nodeClasses = nodeClasses|merge(['dropdown-toggle']) -%}
+    {%- endif -%}
+    {%- if node.active or node.hasActiveChild -%}
+        {%- set nodeClasses = nodeClasses|merge(['active']) -%}
+    {%- endif -%}
+    {%- if node.level == 1 and index == 1 -%}
+        {%- set nodeClasses = nodeClasses|merge(['first']) -%}
+    {%- endif -%}
+    {%- if node.listClass|length -%}
+        {%- set nodeClasses = nodeClasses|merge([node.listClass]) -%}
+    {%- endif -%}
+
+    <li>
+        <a href="{{node.url}}" class="{% if nodeClasses|length %}{{nodeClasses|join(' ')}}{% endif %}"{% if node.blank %} target="_blank"{% endif %}>{{node.name}}</a>
+    </li>
+{% endmacro %}
+
+<div class="primary">
+  <header>
+    <h1><a href="{{siteUrl}}">Bernardino Alvarez</a> is likely to be reading, writing, thinking, or building things.</h1>
+    <nav>
+      <ul>
+        {% for node in nav %}
+          {{_self.addNodeToNavigation(node, loop.index)}}
+        {% endfor %}
+      </ul>
+    </nav>
+  </header>
+</div>

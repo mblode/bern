@@ -1,0 +1,26 @@
+{% extends "_layouts/site" %}
+
+{% block main %}
+  {% set pages = craft.entries.section('favs').level(1) %}
+  <nav>
+      <ul>
+          {% for page in pages %}
+              <li>{{ page.getLink() }}</li>
+          {% endfor %}
+      </ul>
+  </nav>
+
+    {% for block in entry.favs %}
+    
+      {% if block.type == 'favContent' %}
+        <a href="{{block.contentLink}}">
+          <img src="" alt="">
+          <h5>{{block.contentTitle | typogrify}}</h5>
+          <p>{{block.contentFullName | typogrify}}</p>
+        </a>
+      {% endif %}
+    
+    {% endfor %}
+    
+
+{% endblock %}

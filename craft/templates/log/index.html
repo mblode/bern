@@ -1,0 +1,19 @@
+{% extends "_layouts/site" %}
+
+{% block main %}
+
+  {% for entry in craft.entries.section('log').limit(10) %}
+    
+    <ol>
+      <li class="yearly-archive year-2017 group">
+        <h2>Twenty Seventeen</h2>
+        {% for entry in craft.entries.section('log').limit(10) %}
+          <p><a href="{{ entry.url }}">{{ entry.title }}</a></p>
+          <span>{{entry.postDate}}</span>
+        {% endfor %}
+      </li>
+    </ol>
+  {% endfor %}
+  
+
+{% endblock %}
