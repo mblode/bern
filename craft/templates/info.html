@@ -1,10 +1,11 @@
 {% extends "_layouts/site" %}
 
 {% block main %}
+  <article>
+    <h2>{{entry.title | typogrify}}</h2>
+    <p>{{entry.subtitle | typogrify}}</p>
 
-  <h2>{{entry.title | typogrify}}</h2>
-  <p>{{entry.subtitle | typogrify}}</p>
-
-  {{entry.body}}
+    {{entry.body}}
+  </article>
 
 {% endblock %}

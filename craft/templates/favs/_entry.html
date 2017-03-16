@@ -1,26 +1,61 @@
 {% extends "_layouts/site" %}
 
 {% block main %}
-  {% set pages = craft.entries.section('favs').level(1) %}
-  <nav>
-      <ul>
-          {% for page in pages %}
-              <li>{{ page.getLink() }}</li>
-          {% endfor %}
-      </ul>
-  </nav>
+  <article>
+    <h2>Favourites</h2>
+    <p>Admired and frequently recommended works</p>
 
-    {% for block in entry.favs %}
-    
-      {% if block.type == 'favContent' %}
-        <a href="{{block.contentLink}}">
-          <img src="" alt="">
-          <h5>{{block.contentTitle | typogrify}}</h5>
-          <p>{{block.contentFullName | typogrify}}</p>
-        </a>
-      {% endif %}
-    
-    {% endfor %}
+    {% set pages = craft.entries.section('favs').level(1) %}
+    <nav>
+      <ul>
+        {% for page in pages %}
+          <li>{{ page.getLink() }}</li>
+        {% endfor %}
+      </ul>
+    </nav>
+
+    <ul class="gridview">
+
+      {% for block in entry.favs %}
+      
+        {% if block.type == 'favContent' %}
+          <li class="favs-container">
+            <a href="{{block.contentLink}}">
+              <figure>
+                {% set image = block.contentImage.first() %}
+                {% set transformedImages = craft.imager.transformImage(image,
+                  [
+                    { width: 400 },
+                    { width: 300, jpegQuality: 65 },
+                  ],
+                  {
+                    format: 'jpg',
+                    allowUpscale: false,
+                    mode: 'crop',
+                    jpegQuality: 80,
+                    interlace: true
+                  }
+                ) %}
+                <img class="img-fluid mb-3"
+                  src="{{craft.imager.base64Pixel(2,1)}}"
+                  sizes="100vw"
+                  srcset="{{craft.imager.srcset(transformedImages)}}"
+                  alt="{{block.contentTitle}}">
+
+                <figcaption>
+                  <p><b>{{block.contentTitle | typogrify}}</b></p>
+                  <small>{{block.contentFullName | typogrify}}</small>
+                </figcaption>
+              </figure>
+            </a>
+          </li>
+        {% endif %}
+      
+      {% endfor %}
+    </ul>
+    </div>
+
+  </article>
     
 
 {% endblock %}

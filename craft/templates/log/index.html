@@ -2,14 +2,33 @@
 
 {% block main %}
 
-  {% for entry in craft.entries.section('log').limit(10) %}
-    
+  {% set allEntries = craft.entries.section('log').find() %}
+  {% set allEntriesByYear = allEntries|group('postDate.year') %}
+
+  {% for year, entriesInYear in allEntriesByYear%}
     <ol>
       <li class="yearly-archive year-2017 group">
-        <h2>Twenty Seventeen</h2>
-        {% for entry in craft.entries.section('log').limit(10) %}
-          <p><a href="{{ entry.url }}">{{ entry.title }}</a></p>
-          <span>{{entry.postDate}}</span>
+        {% switch year %}
+          {% case "2016" %}
+            <h2>Twenty-sixteen</h2>
+          {% case "2017" %}
+            <h2>Twenty-seventeen</h2>
+          {% case "2018" %}
+            <h2>Twenty-eighteen</h2>
+          {% case "2019" %}
+            <h2>Twenty-nineteen</h2>
+          {% case "2020" %}
+            <h2>Twenty-twenty</h2>
+          {% case "2021" %}
+            <h2>Twenty-twenty-one</h2>
+          {% default %}
+            <h2>{{ year }}</h2>
+          {% endswitch %}
+        {% for entry in entriesInYear %}
+          <p>
+            <a href="{{ entry.url }}">{{ entry.title }}</a>
+            <span>{{entry.postDate|date('d F Y')}}</span>
+          </p>
         {% endfor %}
       </li>
     </ol>

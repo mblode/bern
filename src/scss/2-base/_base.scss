@@ -46,11 +46,13 @@ h2 {
     font-size: 1.875em; 
     letter-spacing: -0.025em; 
     line-height: 1.3125em;
+    font-weight: bold;
 }
 
 h3, h4 { 
     font-size: 1.125em; 
     padding: 2em 0 0.5em 0; 
+    font-weight: bold;
 }
 
 h3 + h4 { 
@@ -130,9 +132,9 @@ notes ul li{
 }
 
 blockquote {
-		min-height: .6em;
+        min-height: .6em;
         position: relative;
-	}
+    }
 
 blockquote:before {
     position: relative;
@@ -565,4 +567,62 @@ pre .xml .javascript,
 pre .xml .vbscript,
 pre .tex .formula {
   opacity: 0.5;
+}
+
+ul.gridview {
+display: flex;
+justify-content: flex-start;
+flex-wrap: wrap;
+align-items: baseline;
+}
+
+@media (min-width: 900px) {
+  ul.gridview li {
+  width: 25%;
+  }
+}
+
+@media (min-width: 750px) {
+  ul.gridview li {
+    width: 33.333333%;
+    padding-right: 40px;
+  }
+}
+
+@media (min-width: 700px) {
+  ul.gridview li {
+    width: 50%;
+  }
+}
+
+@media (min-width: 600px) {
+  ul.gridview li {
+    width: 33.333333%;
+  }
+}
+
+ul.gridview li {
+  width: 50%;
+  padding-right: 20px;
+  margin-bottom: 40px;
+  font-size: 14px;
+  line-height: 20px;
+  -webkit-font-smoothing: subpixel-antialiased;
+  list-style: none;
+}
+
+ul.gridview li a {
+    color: #222;
+    text-decoration: none;
+}
+
+ul.gridview li a img {
+    width: 100%;
+    margin-bottom: 10px;
+    transition: all 0.1s ease-out;
+}
+
+ul.gridview li a small {
+    display: block;
+    color: rgba(0, 0, 0, 0.5);
 }
