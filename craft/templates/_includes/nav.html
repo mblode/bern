@@ -1,18 +1,3 @@
-<!--<div class="primary">
-  <header>
-    <h1><a href="{{siteUrl}}">Bernardino Alvarez</a> is likely to be reading, writing, thinking, or building things.</h1>
-      <nav>
-        <ul>
-          <li><a class="home" href="{{siteUrl}}">Do</a></li>
-          <li><a class="blog" href="{{siteUrl}}log">Log</a></li>
-          <li><a class="about" href="{{siteUrl}}info">Info</a></li>
-          <li><a class="notes" href="{{siteUrl}}notes">Notes</a></li>
-          <li><a class="notes" href="{{siteUrl}}favs/books">Favourites</a></li>
-        </ul>
-      </nav>
-  </header>
-</div>-->
-
 {% set nav = craft.amNav.getNavRaw("navigation") %}
 
 {% macro addNodeToNavigation(node, index) %}
@@ -35,15 +20,17 @@
     </li>
 {% endmacro %}
 
-<div class="primary">
-  <header>
-    <h1><a href="{{siteUrl}}">Bernardino Alvarez</a> is likely to be reading, writing, thinking, or building things.</h1>
-    <nav>
-      <ul>
-        {% for node in nav %}
-          {{_self.addNodeToNavigation(node, loop.index)}}
-        {% endfor %}
-      </ul>
-    </nav>
+<div class="col-xs-12 col-md-4 ma0">
+  <header class="site-header" role="banner">
+    <div class="nav fixed">
+      <p><a href="{{siteUrl}}">Bernardino Alvarez</a> is likely to be reading, writing, thinking, or building things.</p>
+      <nav>
+        <ul>
+          {% for node in nav %}
+            {{_self.addNodeToNavigation(node, loop.index)}}
+          {% endfor %}
+        </ul>
+      </nav>
+    </div>
   </header>
 </div>

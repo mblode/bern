@@ -2,11 +2,11 @@
 
 {% block main %}
 
-  {% set allEntries = craft.entries.section('log').find() %}
+  {% set allEntries = craft.entries.section('blog').find() %}
   {% set allEntriesByYear = allEntries|group('postDate.year') %}
 
   {% for year, entriesInYear in allEntriesByYear%}
-    <ol>
+    <ol class="pa0">
       <li class="yearly-archive year-2017 group">
         {% switch year %}
           {% case "2016" %}
@@ -29,10 +29,21 @@
             <a href="{{ entry.url }}">{{ entry.title }}</a>
             <span>{{entry.postDate|date('d F Y')}}</span>
           </p>
+
+          {% set comments = craft.comments.all({
+              limit: 10,
+              elementId: entry.id
+          }) %}
+
+          <ul>
+            {% for comment in comments %}
+                <li><p>{{ comment.comment }}</p></li>
+            {% endfor %}
+          </ul>
+          
         {% endfor %}
       </li>
     </ol>
   {% endfor %}
-  
 
 {% endblock %}

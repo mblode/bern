@@ -1,0 +1,518 @@
+div,
+article,
+section,
+header,
+footer,
+nav,
+figure,
+.notes,
+li {
+  position: relative;
+}
+
+html,
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-size: 1rem;
+  line-height: 1.5;
+  text-rendering: optimizeLegibility;
+}
+
+body,
+figcaption em {
+  color: $text-primary;
+  font-family: $font-family;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+strong,
+h1 a,
+h3,
+h4,
+div.primary h2,
+li cite,
+h3 cite {
+  font-style: normal;
+}
+
+em,
+em strong,
+strong em h1,
+label,
+figcaption,
+article.single p:first-child,
+p.note,
+p.small-print,
+blockquote + cite,
+li.yearly-archive p span,
+div#comments ol li article header h3 + p {
+  font-style: italic;
+}
+
+h1 {
+  color: $text-secondary;
+  font-size: 1rem;
+  font-weight: normal;
+  line-height: 1.1;
+}
+
+h1 a {
+  color: $text-primary;
+}
+
+h1 a:hover {
+  text-decoration: none;
+}
+
+h2 {
+  font-size: 1.875em;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  font-weight: bold;
+}
+
+h3,
+h4 {
+  font-size: 1.125em;
+  padding: 2em 0 0.5em;
+  font-weight: bold;
+  line-height: 1.3;
+}
+
+h3 + h4 {
+  padding-top: 0;
+}
+
+p + h3,
+li + h3 {
+  padding-top: 1.5em;
+}
+
+a {
+  color: $text-primary;
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+@-moz-document url-prefix() {
+  a {
+    display: inline-block;
+  }
+}
+
+p a {
+  text-decoration: underline;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+li a {
+  text-decoration: none;
+}
+
+h2 a,
+figcaption a {
+  color: $text-primary;
+  text-decoration: underline;
+}
+
+h2 + p a,
+figcaption a,
+p.note a,
+p.small-print a {
+  color: $text-secondary;
+}
+
+h3 a:hover,
+h2 + p a:hover,
+figcaption a:hover,
+p.note a:hover,
+p.small-print a:hover,
+li a:hover {
+  text-decoration: none;
+}
+
+p,
+li {
+  padding: 0.5em 0;
+}
+
+li {
+  list-style: none;
+}
+
+ul li {
+  list-style-type: disc;
+  margin-left: 1em;
+}
+
+article ul li {
+  list-style-type: disc;
+  margin-left: 1em;
+}
+
+article ol li {
+  list-style-type: upper-roman;
+  margin-left: 1em;
+}
+
+.notes ul li {
+  list-style-type: lower-latin;
+}
+
+blockquote {
+  min-height: 0.6em;
+  position: relative;
+}
+
+blockquote::before {
+  position: relative;
+  color: #ddd;
+  content: '\201C';
+  font-family: monospace;
+  font-size: 5em;
+  left: 0;
+  line-height: 1;
+  top: 0.22em;
+}
+
+blockquote blockquote::before {
+  content: '\2018';
+}
+
+blockquote p {
+  margin: 0.14em 0;
+  padding-left: 1em;
+}
+
+blockquote + p cite {
+  display: block;
+  margin-top: -1em;
+  padding-bottom: 1em;
+  text-align: right;
+}
+
+article.single p:first-child + p {
+  font-size: 1.875em;
+  line-height: 1.5em;
+}
+
+code {
+  font-size: 0.85em;
+  padding: 3px 5px;
+}
+
+pre {
+  background: #3f3f3f;
+  margin: 30px 0;
+  padding-top: 20px !important;
+  padding-bottom: 10px !important;
+}
+
+pre code {
+  background: none;
+  display: block;
+  padding: 0;
+  overflow: auto;
+  width: 100%;
+}
+
+h2 + p {
+  color: $text-secondary;
+  padding: 1.5em 0;
+}
+
+p.note {
+  color: $text-secondary;
+}
+
+figcaption,
+p.small-print,
+div.primary h2,
+div.primary p {
+  color: $text-secondary;
+}
+
+div.primary h2 {
+  font-size: 1em;
+}
+
+p.note {
+  padding-bottom: 1em;
+}
+
+p.continue {
+  padding-top: 2rem;
+}
+
+p.small-print {
+  padding: 8em 0 1em;
+}
+
+cite {
+  font-style: normal;
+}
+
+div.primary {
+  background: #f6f6ef;
+  // padding: 5%;
+}
+
+// div.content {
+//   padding: 5%;
+// }
+
+header nav ul {
+  border: none;
+  padding: 1em 0;
+}
+
+header nav ul li {
+  display: inline;
+  padding: 0 1em 0 0;
+}
+
+header nav ul li a {
+  color: $text-secondary;
+}
+
+header nav ul li a:hover {
+  color: $text-primary;
+}
+
+body.home header nav ul li a.active {
+  color: $text-primary;
+}
+
+div.content img {
+  margin: 1em 0;
+  max-width: 100%;
+}
+
+article figure figcaption {
+  padding: 0 5% 2em 0;
+}
+
+div.video-wrapper {
+  margin-bottom: 1em;
+}
+
+p iframe {
+  margin-left: -40%;
+  width: 140%;
+}
+
+body.blog div.content > ol li:first-child {
+  padding-top: 0;
+}
+
+li.yearly-archive p span {
+  color: $text-secondary;
+  display: block;
+}
+
+li.yearly-archive h2 + p {
+  padding-bottom: 0.5em;
+}
+
+li.yearly-archive h2 + p a {
+  color: $text-primary;
+}
+
+li.yearly-archive h2 + p a:hover {
+  color: $text-primary;
+}
+
+body.about h2 + img {
+  margin-top: 2em;
+}
+
+body.about h2 span {
+  display: block;
+  padding-top: 0.5em;
+}
+
+@media screen and (min-width: 600px) {
+  body {
+    margin: 0 auto;
+    padding: 7%;
+  }
+
+  .primary {
+    background: #fdfdf7;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    top: 0;
+    float: left;
+    padding: 8em 0;
+    width: 400px;
+  }
+
+  .primary div div {
+    border-top: 1px solid $text-divider;
+    padding: 1em 0 3em;
+  }
+
+  div.content {
+    float: left;
+    // padding: 3.65em 0 8em;
+    width: 100%;
+  }
+
+  div.ads {
+    display: block;
+  }
+
+  // h1,
+  // div.ads h2,
+  // div.ads p,
+  // div.ads span {
+  //   line-height: 1.875em;
+  //   width: 90%;
+  // }
+
+  // div.ads span {
+  //   display: block;
+  // }
+
+  header nav ul {
+    padding: 2em 0 3em;
+  }
+
+  header nav ul li {
+    display: block;
+    padding: 0;
+  }
+
+  // #disqus_thread,
+  h2 {
+    padding-top: 2rem;
+  }
+
+  div.content h2,
+  div.content h3,
+  div.content h4,
+  div.content p,
+  article ul,
+  article ol,
+  pre,
+  blockquote {
+    padding-left: 5%;
+  }
+
+  form input,
+  form textarea {
+    margin-left: 5%;
+  }
+
+  div.content blockquote p {
+    padding-left: 1em;
+  }
+
+  article figure figcaption {
+    padding-left: 5%;
+  }
+
+  // div#comments ol li article header div.gravatar-container {
+  //   left: 5%;
+  // }
+
+  // div#comments ol li article header h3,
+  // div#comments ol li article header h3 + p {
+  //   padding: 0 0 0 20%;
+  // }
+}
+
+@media screen and (min-width: 900px) {
+  h2#art-direction {
+    padding-left: 15%;
+  }
+
+  // #disqus_thread,
+  // div.content h2,
+  // div.content h3,
+  // div.content h4,
+  // div.content p,
+  // article ul,
+  // article ol,
+  // pre,
+  // blockquote {
+  //   padding-left: 28.787%;
+  // }
+
+  // form input,
+  // form textarea {
+  //   margin-left: 28.787%;
+  //   width: 71%;
+  // }
+
+  // article figure figcaption {
+  //   left: 0;
+  //   padding: 0.5em 0 0 5%;
+  //   position: absolute;
+  //   width: 25%;
+  // }
+
+  // div#comments ol li article header div.gravatar-container {
+  //   left: 15%;
+  // }
+
+  // div#comments ol li article header h3,
+  // div#comments ol li article header h3 + p {
+  //   padding: 0 0 0 28.787%;
+  // }
+}
+
+// @media screen and (min-width: 1200px) {
+//   body {
+//     font-size: 100%;
+//   }
+// }
+
+@media screen and (min-width: 1400px) {
+  // html {
+  //   padding: 0 16%;
+  // }
+
+  // div.fauxcolumn {
+  //   width: 37.75%;
+  // }
+}
+
+// @media screen and (min-width: 1500px) {
+//   div.ads div.primary-ad a.ad-image img {
+//     float: left;
+//     margin: 1em 1em 0.5em 0;
+//   }
+// }
+
+// @media screen and (min-width: 1800px) {
+//   body {
+//     font-size: 110%;
+//   }
+// }
+
+// @media screen and (min-width: 2000px) {
+//   body {
+//     font-size: 115%;
+//   }
+// }
+
+// @media screen and (min-width: 2400px) {
+//   html {
+//     padding: 0 23%;
+//   }
+
+//   div.fauxcolumn {
+//     width: 40.25%;
+//   }
+// }
+
+pre code {
+  color: #dcdcdc;
+}

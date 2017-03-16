@@ -2,16 +2,19 @@
 
 {% block body %}
 
-  <div class="fauxcolumn"></div>
-    <div class="container group">
-      {% include "_includes/nav" %}
+  <div class="row">
 
-      <div class="content">
-        {% block main %}{% endblock %}
-        {% include "_includes/footer" %}
-      </div>
+    {% include "_includes/nav" %}
 
+    <div class="col-xs-12 col-md-7 col-md-offset-1 ma0">
+      <main class="page-content" aria-label="Content">
+        <div class="wrapper">
+          {% block main %}{% endblock %}
+          {% include "_includes/footer" %}
+        </div>
+      </main>
     </div>
-  </div>  
+
+  </div> 
 
 {% endblock %}
