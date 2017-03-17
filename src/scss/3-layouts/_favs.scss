@@ -1,56 +1,16 @@
-ul.gridview {
-  display: flex;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-  align-items: baseline;
-}
 
-@media (min-width: 900px) {
-  ul.gridview li {
-    width: 25%;
-  }
-}
-
-@media (min-width: 750px) {
-  ul.gridview li {
-    width: 33.333333%;
-    padding-right: 40px;
-  }
-}
-
-@media (min-width: 700px) {
-  ul.gridview li {
-    width: 50%;
-  }
-}
-
-@media (min-width: 600px) {
-  ul.gridview li {
-    width: 33.333333%;
-  }
-}
-
-ul.gridview li {
-  width: 50%;
-  padding-right: 20px;
-  margin-bottom: 40px;
-  font-size: 14px;
-  line-height: 20px;
-  list-style: none;
-}
-
-ul.gridview li a {
+.favs-container a {
   color: $text-primary;
   text-decoration: none;
-}
 
-ul.gridview li a img {
-  width: 100%;
-  margin-bottom: 10px;
-  transition: all 0.1s ease-out;
-}
+  img {
+    width: 100%;
+    margin-bottom: 10px;
+    transition: all 0.1s ease-out;
+  }
 
-ul.gridview li a small {
-  display: block;
-  color: $text-secondary;
+  small {
+    display: block;
+    color: $text-secondary;
+  }
 }

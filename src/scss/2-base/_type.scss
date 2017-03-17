@@ -147,12 +147,12 @@ li {
 
 ul li {
   list-style-type: disc;
-  margin-left: 1em;
+  // margin-left: 1em;
 }
 
 article ul li {
   list-style-type: disc;
-  margin-left: 1em;
+  // margin-left: 1em;
 }
 
 article ol li {
@@ -321,6 +321,7 @@ li.yearly-archive h2 + p a {
 
 li.yearly-archive h2 + p a:hover {
   color: $text-primary;
+  text-decoration: underline;
 }
 
 body.about h2 + img {
