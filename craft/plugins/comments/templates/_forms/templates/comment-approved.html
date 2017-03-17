@@ -74,7 +74,7 @@
 
         {# Inline edit form (initially hidden) - only available on approved comment #}
         {% if not comment.isFlagged and not comment.isPoorlyRated %}
-            {% include '_forms/templates/form-edit' %}
+            {% include '_comments/form-edit' %}
         {% endif %}
 
         <div class="meta-buttons">

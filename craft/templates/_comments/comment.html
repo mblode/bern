@@ -1,0 +1,21 @@
+{% macro printComments(element, comments, settings) %}
+  <ul class="comments-list">
+    {% for comment in comments %}
+      <li class="comment-single" id="comment-{{ comment.id }}" data-id="{{ comment.id }}" itemprop="comment" itemscope itemtype="http://schema.org/UserComments">
+        <hr class="comment-hr">
+
+        {# Get the comment template depending on status #}              
+        {% include '_comments/comment-' ~ comment.status %}
+
+        {# An inline form for easy reply #}
+        {% include '_comments/form' %}
+
+        {% if comment.hasDescendants %}
+          {{ _self.printComments(element, comment.children, settings) }}
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+{% endmacro %}
+
+{{ _self.printComments(element, comments, settings) }}

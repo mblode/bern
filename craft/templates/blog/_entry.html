@@ -1,23 +1,26 @@
 {% extends "_layouts/site" %}
 
 {% block main %}
+  <h2>{{entry.title}}</h2>
+  <p>Posted on {{entry.postDate|date('d F Y')}}</p>
 
-  <link rel="stylesheet" href="../comments-style.css">
-    <h2>{{entry.title}}</h2>
-    <p>Posted on {{entry.postDate|date('d F Y')}}</p>
+  {{entry.body}}
 
-    {{entry.body}}
+  <hr>
 
   <div class="comments">
-        {% set params = {
-            order: 'dateCreated asc',
-        } %}
+    {% set params = {
+      order: 'dateCreated asc',
+    } %}
 
-        {{ craft.comments.form(entry.id, params) }}
+    {{ craft.comments.form(entry.id, params) }}
   </div>
 
-  <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
-<script>
+{% endblock %}
+
+{% includeJsFile "https://code.jquery.com/jquery-2.1.3.min.js" %}
+
+{% set myJs %}
 $(document).ready(function() {
     $(document).on('submit', '.comment-form', function(e) {
         e.preventDefault();
@@ -139,6 +142,6 @@ $(document).ready(function() {
         });
     });
 });
-</script>
+{% endset %}
 
-{% endblock %}
+{% includeJs myJs %}

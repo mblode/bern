@@ -5,6 +5,8 @@ body {
   font-size: 1rem;
   line-height: 1.5;
   text-rendering: optimizeLegibility;
+  letter-spacing: -0.04rem;
+  word-spacing: -0.02rem;
 }
 
 body,
@@ -13,6 +15,18 @@ figcaption em {
   font-family: $font-family;
   font-size: 1rem;
   font-weight: 400;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: $text-primary;
+  font-family: $font-family;
+  font-size: 1rem;
+  font-weight: 400;
+  margin: 0;
 }
 
 strong,
@@ -223,7 +237,6 @@ pre code {
 
 h2 + p {
   color: $text-secondary;
-  padding: 1.5em 0;
 }
 
 p.note {
@@ -382,11 +395,6 @@ body.about h2 span {
     padding-left: 5%;
   }
 
-  form input,
-  form textarea {
-    margin-left: 5%;
-  }
-
   div.content blockquote p {
     padding-left: 1em;
   }
@@ -492,4 +500,8 @@ body.about h2 span {
 
 pre code {
   color: #dcdcdc;
+}
+
+.small {
+  font-size: 13px;
 }

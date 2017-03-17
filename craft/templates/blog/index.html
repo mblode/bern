@@ -26,12 +26,12 @@
           {% endswitch %}
         {% for entry in entriesInYear %}
           <p>
-            <a href="{{ entry.url }}">{{ entry.title }}</a>
-            <span>{{entry.postDate|date('d F Y')}}</span>
+            <a href="{{ entry.url }}">{{ entry.title | typogrify }}</a>
+            <span class="small">{{entry.postDate|date('d F Y')}}</span>
           </p>
 
-          {% set comments = craft.comments.all({
-              limit: 10,
+          {#{% set comments = craft.comments.all({
+              limit: 4,
               elementId: entry.id
           }) %}
 
@@ -39,7 +39,7 @@
             {% for comment in comments %}
                 <li><p>{{ comment.comment }}</p></li>
             {% endfor %}
-          </ul>
+          </ul>#}
           
         {% endfor %}
       </li>
