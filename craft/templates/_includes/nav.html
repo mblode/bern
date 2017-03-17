@@ -20,17 +20,21 @@
     </li>
 {% endmacro %}
 
-<div class="col-xs-12 col-md-4 ma0">
-  <header class="site-header" role="banner">
-    <div class="nav fixed">
-      <p><a href="{{siteUrl}}">Bernardino Alvarez</a> is likely to be reading, writing, thinking, or building things.</p>
-      <nav>
-        <ul>
-          {% for node in nav %}
-            {{_self.addNodeToNavigation(node, loop.index)}}
-          {% endfor %}
-        </ul>
-      </nav>
+<section class="nav-cont">
+  <div class="row">
+    <div class="col-xs-12">
+      <header class="nav-sidebar" role="banner">
+        <div class="nav">
+          <p><a href="{{siteUrl}}">Bernardino Alvarez</a> is likely to be reading, writing, thinking, or building things.</p>
+          <nav>
+            <ul class="ma0">
+              {% for node in nav %}
+                {{_self.addNodeToNavigation(node, loop.index)}}
+              {% endfor %}
+            </ul>
+          </nav>
+        </div>
+      </header>
     </div>
-  </header>
-</div>
+  </div>
+</section>

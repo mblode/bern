@@ -1,3 +1,13 @@
+.nav-cont {
+  padding: 1.5rem;
+  background: #f6f6ef;
+}
+
+.cont {
+  padding: 1.5rem;
+  z-index: -1000;
+}
+
 .ma0 {
   margin: 0;
 }
@@ -6,6 +16,35 @@
   padding: 0;
 }
 
-.fixed {
-  position: fixed;
+.menu {
+  list-style-type: none !important;
+  margin: 0;
+  padding: 0;
+
+  li {
+    display: inline-block;
+    margin: 0;
+    margin-right: 24px;
+  }
+
+  li a {
+    display: block;
+    // padding: 8px;
+    // background-color: #dddddd;
+  }
+}
+
+@media only screen and (min-width: 62em) {
+  .nav-cont,
+  .cont {
+    padding: 0;
+  }
+
+  .page-main {
+    margin-left: calc(222px + 14%);
+  }
+
+  .page-content {
+    padding: 7vw;
+  }
 }

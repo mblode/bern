@@ -2,19 +2,26 @@
 
 {% block body %}
 
-  <div class="row">
-
-    {% include "_includes/nav" %}
-
-    <div class="col-xs-12 col-md-7 col-md-offset-1 ma0">
-      <main class="page-content" aria-label="Content">
-        <div class="wrapper">
+  {% include "_includes/nav" %}
+  
+  <main aria-label="Content" class="cont">
+    <div class="row page-main">
+      <div class="col-xs-12">
+        <div class="page-content">
           {% block main %}{% endblock %}
-          {% include "_includes/footer" %}
         </div>
-      </main>
+      </div>
     </div>
+  </main>
 
+<footer class="cont">
+  <div class="row page-main">
+    <div class="col-xs-12">
+      <div class="page-content">
+        {% include "_includes/footer" %}
+      </div>
+    </div>
   </div> 
+</footer>
 
 {% endblock %}

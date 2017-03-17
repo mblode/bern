@@ -1,15 +1,3 @@
-div,
-article,
-section,
-header,
-footer,
-nav,
-figure,
-.notes,
-li {
-  position: relative;
-}
-
 html,
 body {
   -moz-osx-font-smoothing: grayscale;
@@ -110,8 +98,20 @@ p a {
   }
 }
 
-li a {
-  text-decoration: none;
+li {
+  &.active {
+    text-decoration: underline;
+  }
+
+  a {
+    text-decoration: none;
+
+    &:hover,
+    &:focus,
+    &.active {
+      text-decoration: underline;
+    }
+  }
 }
 
 h2 a,
@@ -131,14 +131,14 @@ h3 a:hover,
 h2 + p a:hover,
 figcaption a:hover,
 p.note a:hover,
-p.small-print a:hover,
-li a:hover {
+p.small-print a:hover {
   text-decoration: none;
 }
 
 p,
 li {
-  padding: 0.5em 0;
+  margin-top: 0;
+  margin-bottom: 1rem;
 }
 
 li {
@@ -249,10 +249,6 @@ p.continue {
   padding-top: 2rem;
 }
 
-p.small-print {
-  padding: 8em 0 1em;
-}
-
 cite {
   font-style: normal;
 }
@@ -336,27 +332,7 @@ body.about h2 span {
   padding-top: 0.5em;
 }
 
-@media screen and (min-width: 600px) {
-  body {
-    margin: 0 auto;
-    padding: 7%;
-  }
-
-  .primary {
-    background: #fdfdf7;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    top: 0;
-    float: left;
-    padding: 8em 0;
-    width: 400px;
-  }
-
-  .primary div div {
-    border-top: 1px solid $text-divider;
-    padding: 1em 0 3em;
-  }
+@media screen and (min-width: 62em) {
 
   div.content {
     float: left;
@@ -390,9 +366,9 @@ body.about h2 span {
   }
 
   // #disqus_thread,
-  h2 {
-    padding-top: 2rem;
-  }
+  // h2 {
+  //   padding-top: 2rem;
+  // }
 
   div.content h2,
   div.content h3,

@@ -7,9 +7,9 @@
 
   {% set pages = craft.entries.section('favs').level(1) %}
   <nav>
-    <ul>
+    <ul class="menu">
       {% for page in pages %}
-        <li>{{ page.getLink() }}</li>
+        <li class="{{ page.id == entry.id ? 'active' }}">{{ page.getLink() }}</li>
       {% endfor %}
     </ul>
   </nav>

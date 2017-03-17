@@ -6,7 +6,7 @@
   {% set allEntriesByYear = allEntries|group('postDate.year') %}
 
   {% for year, entriesInYear in allEntriesByYear%}
-    <ol class="pa0">
+    <ol class="pa0 ma0">
       <li class="yearly-archive year-2017 group">
         {% switch year %}
           {% case "2016" %}

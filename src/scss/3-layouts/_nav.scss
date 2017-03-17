@@ -1,11 +1,20 @@
-.site-header {
-  padding-top: 2rem;
-}
+@media only screen and (min-width: 62em) {
+  .nav-sidebar {
+    background: #f6f6ef;
+    position: fixed;
+    max-width: 250px;
+    padding: 7%;
+    height: 100%;
+    top: -16px;
+    left: -16px;
+  }
 
-header {
-  display: block;
-}
+  .nav {
+    padding-top: 32px;
+  }
 
-.nav {
-  max-width: 250px;
+  .nav div div {
+    border-top: 1px solid $text-divider;
+    padding: 1em 0 3em;
+  }
 }
