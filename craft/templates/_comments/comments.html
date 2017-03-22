@@ -1,11 +1,16 @@
-<div class="comments-box">
-    {# Provide a comment form at the bottom of page. Used when not replying to another comment #}
-    <div class="comment-form-container">
-        {% include '_comments/form' %}
-    </div>
+<div class="row">
+    <div class="col-xs-12">
+        <div class="comments-box">
+            {# Provide a comment form at the bottom of page. Used when not replying to another comment #}
+            <div class="comment-form-container">
+                {% include '_comments/form' %}
+            </div>
 
-    {# Print out a tree-structured list of all comments #}
-    <div class="comments-container">
-        {% include '_comments/comment' %}
+            {# Print out a tree-structured list of all comments #}
+            <div class="comments-container">
+                {% include '_comments/comment' %}
+            </div>
+        </div>
     </div>
 </div>
+

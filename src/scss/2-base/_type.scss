@@ -1,12 +1,9 @@
-html,
-body {
+html {
+  text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   font-size: 1rem;
   line-height: 1.5;
-  text-rendering: optimizeLegibility;
-  letter-spacing: -0.04rem;
-  word-spacing: -0.02rem;
 }
 
 body,
@@ -324,17 +321,25 @@ li.yearly-archive p span {
   display: block;
 }
 
-li.yearly-archive h2 + p {
-  padding-bottom: 0.5em;
+li.yearly-archive h2 {
+  margin-bottom: 1rem;
 }
 
-li.yearly-archive h2 + p a {
-  color: $text-primary;
+li.yearly-archive {
+  margin-bottom: 3rem;
 }
 
-li.yearly-archive h2 + p a:hover {
+li.yearly-archive h2 p {
+  padding-bottom: 1em;
+}
+
+li.yearly-archive p a {
   color: $text-primary;
   text-decoration: underline;
+}
+
+li.yearly-archive p a:hover {
+  text-decoration: none;
 }
 
 body.about h2 + img {
@@ -499,7 +504,7 @@ body.about h2 span {
 // }
 
 pre code {
-  color: #dcdcdc;
+color: #dcdcdc;
 }
 
 .small {

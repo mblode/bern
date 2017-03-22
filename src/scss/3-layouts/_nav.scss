@@ -2,9 +2,17 @@
   background: #f6f6ef;
   margin: -16px;
   padding: 16px;
+
+  .row {
+    margin-top: 16px;
+  }
 }
 
 @media only screen and (min-width: 62em) {
+  .nav-cont .row {
+    margin-top: 0;
+  }
+
   .nav-sidebar {
     background: #f6f6ef;
     position: fixed;
@@ -25,7 +33,7 @@
   }
 }
 
-@media only screen and (max-height: 500px) and (min-width: 62em)  {
+@media only screen and (max-height: 500px) and (min-width: 62em) {
   .nav-sidebar {
     position: absolute;
     padding-bottom: 0;

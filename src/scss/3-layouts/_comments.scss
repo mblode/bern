@@ -3,25 +3,25 @@
 }
 
 label {
-  display: inline-block;
-  margin-bottom: 0.5rem;
+  display: block;
+  margin: .25em 0;
   font-style: normal;
   font-weight: bold;
 }
 
 .form-control {
-  display: block;
+  display: inline-block;
+  margin: 0.25em 0;
+  padding: 0.5em 0.75em;
+  color: $text-primary;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 0.25rem;
+  box-sizing: border-box;
   width: 100%;
-  padding: 0.5rem 0.75rem;
-  font-size: 1rem;
-  line-height: 1.25;
-  color: #464a4c;
   background-color: #fff;
   background-image: none;
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  border-radius: 0.25rem;
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
 
