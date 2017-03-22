@@ -1,27 +1,18 @@
 <div class="comment-container">
-  <span itemprop="creator" itemscope itemtype="http://schema.org/Person">
-    <div class="comment-image" itemprop="image">
-      {% if comment.isGuest() %}
-        <img src="{{ resourceUrl('/images/user.svg') }}" />
-      {% else %}
-        <img src="{{ comment.author.photoUrl ? comment.author.photoUrl : resourceUrl('/images/user.svg') }}" />
-      {% endif %}
-    </div>
-  </span>
-
   <div class="comment-text">
     <span class="comment-heading">
-      <span itemprop="creator" itemscope itemtype="http://schema.org/Person">
-        <span class="title" itemprop="name">
-          {{ comment.author.fullName ? comment.author.fullName : comment.author }}
+      <span class="title">
+        <time itemprop="commentTime" datetime="{{ comment.dateCreated | date('c') }}">
+          On {{ comment.dateCreated | date('M jS, Y') }},
+        </time>
+
+        <span itemprop="creator" itemscope itemtype="http://schema.org/Person">
+          <span itemprop="name">
+            {{ comment.author.fullName ? comment.author.fullName : comment.author }} said:
+          </span>
         </span>
       </span>
-
-      <span class="meta">
-        <time itemprop="commentTime" datetime="{{ comment.dateCreated | date('c') }}">
-          {{ comment.dateCreated | date('M jS, Y') }}
-        </time>
-      </span>
+    </span>
 
     <div class="comment-content" itemprop="commentText">
       {% if comment.isFlagged %}
@@ -39,57 +30,22 @@
     {% endif %}
 
     <div class="meta-buttons">
-      {% if settings.allowVoting %}
-        <div class="comment-votes">
-          <a href="{{ comment.upvoteActionUrl }}" class="comment-vote-up">
-            <span class="caret-up"></span>
-          </a>
-          <span class="count">{{ comment.voteCount }} votes</span>          
-        </div>
-
-        <span>&middot;</span>
-      {% endif %}
-
       {% if not comment.isClosed %}
         <a href="#" class="comment-reply" itemprop="replyToUrl">
         </span>Reply</a>
-
-        <span>&middot;</span>
-      {% endif %}
-      
-      {% if comment.descendants | length %}
-      <a href="#" class="comment-toggle">
-        <span class="glyphicon glyphicon-comment"></span>
-        {{ comment.descendants | length }} comments
-      </a>
       {% endif %}
 
       {% if currentUser %}
         {% if comment.canEdit() %}
-          <span>&middot;</span>
           <a href="#" class="comment-edit">
             <span class="glyphicon glyphicon-edit"></span>Edit
           </a>
         {% endif %}
 
         {% if comment.canTrash() %}
-          <span>&middot;</span>
           <a href="{{ comment.trashActionUrl }}" class="comment-delete">
             <span class="glyphicon glyphicon-remove"></span>Delete
           </a>
-        {% endif %}
-
-        {% if settings.allowFlagging %}
-            <span>&middot;</span>
-          {% if comment.flagActionUrl %}
-            <a href="{{ comment.flagActionUrl }}" class="comment-flag">
-              Report
-            </a>
-          {% else %}
-            <span class="static-label comment-flag">
-              Report
-            </span>
-          {% endif %}
         {% endif %}
       {% endif %}
 
