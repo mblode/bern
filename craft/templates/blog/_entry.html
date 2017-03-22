@@ -1,7 +1,7 @@
 {% extends "_layouts/site" %}
 
 {% block main %}
-  <h2>{{entry.title}}</h2>
+  <h2>{{entry.title | typogrify}}</h2>
   <p>Posted on {{entry.postDate|date('d F Y')}}</p>
 
   {{entry.body}}

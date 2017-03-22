@@ -34,25 +34,27 @@
         {% endif %}
     </div>
 
-    <div class="form-group name-input">
-        <input class="form-control" name="fields[name]" type="text" placeholder="Your name" value="{{ attribute(activeComment, 'name') }}">
+    {% if not currentUser %}
+        <div class="form-group name-input">
+            <input class="form-control" name="fields[name]" type="text" placeholder="Your name" value="{{ attribute(activeComment, 'name') }}">
 
-        {% if activeComment is defined %}
-            <div class="comment-errors-container">
-                {{ _self.errorList(activeComment.getErrors('name')) }}
-            </div>
-        {% endif %}
-    </div>
+            {% if activeComment is defined %}
+                <div class="comment-errors-container">
+                    {{ _self.errorList(activeComment.getErrors('name')) }}
+                </div>
+            {% endif %}
+        </div>
 
-    <div class="form-group email-input">
-        <input class="form-control" name="fields[email]" type="text" placeholder="Your email" value="{{ attribute(activeComment, 'email') }}">
+        <div class="form-group email-input">
+            <input class="form-control" name="fields[email]" type="text" placeholder="Your email" value="{{ attribute(activeComment, 'email') }}">
 
-        {% if activeComment is defined %}
-            <div class="comment-errors-container">
-                {{ _self.errorList(activeComment.getErrors('email')) }}
-            </div>
-        {% endif %}
-    </div>
+            {% if activeComment is defined %}
+                <div class="comment-errors-container">
+                    {{ _self.errorList(activeComment.getErrors('email')) }}
+                </div>
+            {% endif %}
+        </div>
+    {% endif %}
 
     <div class="form-group comment-input-btn">
         <button type="submit" class="btn btn-outline-primary">Comment</button>

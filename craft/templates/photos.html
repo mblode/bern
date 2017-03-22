@@ -1,0 +1,38 @@
+{% extends "_layouts/site" %}
+
+{% block main %}
+
+  <h2>{{entry.title | typogrify}}</h2>
+  <p>{{entry.subtitle | typogrify}}</p>
+
+  <div class="row">
+    {% for block in entry.photos %}
+    
+      {% if block.type == 'photos' %}
+        <div class="col-xs-12 col-sm-8 pt3">
+          {% set image = block.photos.first() %}
+          {% set transformedImages = craft.imager.transformImage(image,
+            [
+              { width: 800 },
+              { width: 400, jpegQuality: 65 },
+            ],
+            {
+              format: 'jpg',
+              allowUpscale: false,
+              mode: 'crop',
+              jpegQuality: 80,
+              interlace: true
+            }
+          ) %}
+          <img class="img-fluid"
+            src="{{craft.imager.base64Pixel(2,1)}}"
+            sizes="100vw"
+            srcset="{{craft.imager.srcset(transformedImages)}}"
+            alt="{{block.cite}}">
+          <small>{{block.cite | typogrify}}</small>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+
+{% endblock %}

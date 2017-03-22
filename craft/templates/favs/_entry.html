@@ -6,6 +6,7 @@
   <p>Admired and frequently recommended works</p>
 
   {% set pages = craft.entries.section('favs').level(1) %}
+  <hr>
   <nav>
     <ul class="menu">
       {% for page in pages %}
@@ -13,9 +14,10 @@
       {% endfor %}
     </ul>
   </nav>
+  <hr>
 
 
-  <div class="row">
+  <div class="row bottom-xs">
     {% for block in entry.favs %}
     
       {% if block.type == 'favContent' %}
@@ -44,6 +46,7 @@
               <p><b>{{block.contentTitle | typogrify}}</b></p>
               <small>{{block.contentFullName | typogrify}}</small>
           </a>
+        </div>
       {% endif %}
     
     {% endfor %}
