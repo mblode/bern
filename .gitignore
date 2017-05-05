@@ -20,9 +20,6 @@
 # CRAFT STORAGE
 /craft/storage/*
 
-# ASSETS
-/public/assets/*
-
 # IMAGER TRANSFORMS
 /public/imager/*
 
