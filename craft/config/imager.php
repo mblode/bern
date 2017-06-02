@@ -3,3 +3,4 @@
 return array(
   'imagerSystemPath' => 'imager/',
 );
+
